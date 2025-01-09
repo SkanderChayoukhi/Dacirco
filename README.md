@@ -17,56 +17,52 @@ DaCirco's architecture consists of several key components:
 5. **Schedulers**: Implements custom algorithms like MinimizeWorkers, GracePeriod, and others to optimize task allocation.
 
 ## Scheduling Algorithms
-1. **MinimizeWorkers**: Reduces the number of active workers by efficiently grouping tasks.
-2. **GracePeriod**: Adds idle time buffers before worker termination to improve stability.
-3. **Priority-Based Dynamic Scheduler**: Prioritizes tasks dynamically based on urgency and size.
-4. **Adaptive Grace Period Algorithm**: Adapts worker retention policies based on load conditions.
 
-1. **Minimize Workers**:
+1. #### Minimize Workers:
 
 The Minimize Workers algorithm dynamically scales the number of workers to the minimum required to handle active tasks. It ensures that no idle workers remain in the system unless they are actively processing a task, thereby reducing resource consumption.
 
-2. **Grace Period**:
+2. #### Grace Period:
 
 The Grace Period algorithm introduces a delay before terminating idle workers, allowing for potential new requests to utilize these workers without incurring the cost of creating new ones. This approach balances resource efficiency with responsiveness to fluctuating workloads.
 
-3. **Scheduler with Queue**:
+3. #### Scheduler with Queue:
 
 The Scheduler with Queue algorithm adjusts the number of workers based on the size of the task queue. It:
 
-. Adds new workers only when the number of waiting requests exceeds a defined threshold (queue_threshold).
+- Adds new workers only when the number of waiting requests exceeds a defined threshold (queue_threshold).
 
-. Removes idle workers when the queue is empty.
+- Removes idle workers when the queue is empty.
 
-. Ensures efficient resource allocation while keeping minimal resources active to handle demand effectively.
+- Ensures efficient resource allocation while keeping minimal resources active to handle demand effectively.
 
 **Key Features**:
 
-. Dynamically scales workers based on queue size.
+- Dynamically scales workers based on queue size.
 
-. Ensures a balance between resource usage and request processing.
+- Ensures a balance between resource usage and request processing.
 
-4. **Scheduler with Reserve**:
+4. #### Scheduler with Reserve:
 
 The Scheduler with Reserve algorithm ensures there is always at least one reserve worker available to handle incoming requests. It:
 
-. Creates new workers when demand exceeds capacity.
+- Creates new workers when demand exceeds capacity.
 
-. Keeps one reserve idle worker available, provided the maximum worker limit is not reached.
+- Keeps one reserve idle worker available, provided the maximum worker limit is not reached.
 
-. Removes excess idle workers if there are no waiting requests.
+- Removes excess idle workers if there are no waiting requests.
 
 **Key Features**:
 
-. Guarantees a reserve worker is available for immediate scaling.
+- Guarantees a reserve worker is available for immediate scaling.
 
-. Balances responsiveness and resource efficiency.
+- Balances responsiveness and resource efficiency.
 
-5. **Priority-Based Dynamic Scheduler**:
+5. #### Priority-Based Dynamic Scheduler:
 
 This algorithm prioritizes tasks based on predefined criteria and dynamically adjusts worker allocation to handle higher-priority tasks more efficiently. It ensures critical tasks are processed promptly while maintaining overall system performance.
 
-6. **Adaptive Grace Period Algorithm**:
+6. #### Adaptive Grace Period Algorithm:
 
 An advanced version of the Grace Period algorithm, this approach adapts the delay period based on workload patterns and historical data. It fine-tunes resource allocation to optimize cost and responsiveness under varying workload conditions.
 
