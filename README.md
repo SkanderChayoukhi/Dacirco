@@ -18,7 +18,7 @@ DaCirco's architecture consists of several key components:
 
 ## Scheduling Algorithms
 
-1. #### Minimize Workers:
+1. ### Minimize Workers:
 
 The Minimize Workers algorithm dynamically scales the number of workers to the minimum required to handle active tasks. It ensures that no idle workers remain in the system unless they are actively processing a task, thereby reducing resource consumption.
 
