@@ -1,0 +1,27 @@
+[default]
+image = "dacirco"
+flavor = "m1.small"
+key = "mykey"
+security_group = "ssh"
+network = "external"
+
+[test]
+image = "dacirco"
+flavor = "s10.medium"
+key = "mykey"
+security_group = "ssh"
+network = "external"
+
+[small]
+image = "dacirco"
+flavor = "s10.tiny"  # Small: 1 VCPU
+key = "mykey"
+security_group = "ssh"
+network = "external"
+
+[large]
+image = "dacirco"
+flavor = "s10.medium"  # Large: 4 VCPUs
+key = "mykey"
+security_group = "ssh"
+network = "external"

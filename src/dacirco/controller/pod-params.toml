@@ -1,0 +1,24 @@
+[default]
+image = "gitlab-df-registry.imt-atlantique.fr/pcloud/dacirco-cr/dacirco:latest"
+cpu_request = "1"
+memory_request = "1.4Gi"
+cpu_limit = "4"
+memory_limit = "4Gi"
+node_selector = ""
+
+
+[small]
+image = "gitlab-df-registry.imt-atlantique.fr/pcloud/dacirco-cr/dacirco:latest"
+cpu_request = "100m"           # 0.1 CPU core
+memory_request = "256Mi"       # 256 MiB of memory
+cpu_limit = "500m"             # Max 0.5 CPU core
+memory_limit = "512Mi"         # Max 512 MiB of memory
+node_selector = ""
+
+[large]
+image = "gitlab-df-registry.imt-atlantique.fr/pcloud/dacirco-cr/dacirco:latest"
+cpu_request = "2"              # 2 CPU cores
+memory_request = "4Gi"         # 4 GiB of memory
+cpu_limit = "4"                # Max 4 CPU cores
+memory_limit = "8Gi"           # Max 8 GiB of memory
+node_selector = ""

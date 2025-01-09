@@ -1,0 +1,53 @@
+[build-system]
+# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
+requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dacirco"
+version = "0.1.0"
+dependencies = [
+    "fastapi == 0.111.1",
+    "grpcio  == 1.65.1",
+    "grpcio-tools == 1.65.1",
+    "mypy-protobuf == 3.6.0",
+    "kubernetes == 30.1.0",
+    "minio == 7.2.7",
+    "pandas == 2.2.2",
+    "typer == 0.12.3",
+    "openstacksdk == 3.3.0",
+    "sqlalchemy == 2.0.32",
+    "tabulate",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = ["black", "ruff"]
+test = [
+    "coverage",
+    "pytest",
+    "pytest-cov",
+    "pytest-asyncio",
+    "pytest-mock",
+    "pytest-xdist",
+]
+
+[project.scripts]
+dacirco_controller = "dacirco.controller.main:app"
+dacirco_client = "dacirco.client.client:submit_request"
+dacirco_tc_worker = "dacirco.tc_worker.tc_worker:start_tc_worker"
+dacirco_rest_api = "dacirco.rest_api.rest_api:run_rest_api"
+dacirco_scenario = "dacirco.load_generator.play_scenario:run"
+dacirco_wait_scenario = "dacirco.load_generator.play_wait_scenario:play_wait_scenario"
+dacirco_generate_scenario = "dacirco.load_generator.scenario_generator:main"
+dacirco_get_node_stats = "dacirco.analytics.get_node_stats:app"
+dacirco_rest_monitor = "dacirco.rest_monitor.monitor:run_rest_monitor"
+
+
+[tool.setuptools_scm]
+# See configuration details in https://github.com/pypa/setuptools_scm
+version_scheme = "no-guess-dev"
+
+
+[tool.pyright]
+exclude = ["**/__pycache__", "**/__init__.py"]
