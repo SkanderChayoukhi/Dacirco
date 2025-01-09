@@ -22,11 +22,11 @@ DaCirco's architecture consists of several key components:
 
 The Minimize Workers algorithm dynamically scales the number of workers to the minimum required to handle active tasks. It ensures that no idle workers remain in the system unless they are actively processing a task, thereby reducing resource consumption.
 
-2. #### Grace Period:
+2. ### Grace Period:
 
 The Grace Period algorithm introduces a delay before terminating idle workers, allowing for potential new requests to utilize these workers without incurring the cost of creating new ones. This approach balances resource efficiency with responsiveness to fluctuating workloads.
 
-3. #### Scheduler with Queue:
+3. ### Scheduler with Queue:
 
 The Scheduler with Queue algorithm adjusts the number of workers based on the size of the task queue. It:
 
@@ -42,7 +42,7 @@ The Scheduler with Queue algorithm adjusts the number of workers based on the si
 
 - Ensures a balance between resource usage and request processing.
 
-4. #### Scheduler with Reserve:
+4. ### Scheduler with Reserve:
 
 The Scheduler with Reserve algorithm ensures there is always at least one reserve worker available to handle incoming requests. It:
 
@@ -58,11 +58,11 @@ The Scheduler with Reserve algorithm ensures there is always at least one reserv
 
 - Balances responsiveness and resource efficiency.
 
-5. #### Priority-Based Dynamic Scheduler:
+5. ### Priority-Based Dynamic Scheduler:
 
 This algorithm prioritizes tasks based on predefined criteria and dynamically adjusts worker allocation to handle higher-priority tasks more efficiently. It ensures critical tasks are processed promptly while maintaining overall system performance.
 
-6. #### Adaptive Grace Period Algorithm:
+6. ### Adaptive Grace Period Algorithm:
 
 An advanced version of the Grace Period algorithm, this approach adapts the delay period based on workload patterns and historical data. It fine-tunes resource allocation to optimize cost and responsiveness under varying workload conditions.
 
